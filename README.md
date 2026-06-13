@@ -1,315 +1,258 @@
-# Call Center Performance Analytics Dashboard
+# The Effect of Quantitative and Qualitative Variables on Car Prices
 
 ---
 
-## 1. **Project Overview**
+## 1. Project Overview
 
-Call centers generate large volumes of operational data, including call logs, handling times, agent activity, and customer feedback.  
+Car pricing is influenced by a combination of quantitative variables such as mileage, engine size, and horsepower, as well as qualitative variables such as fuel type, car brand, and body style.
 
-This project transforms raw call center data into actionable insights by building a **data analytics pipeline** and an interactive **Power BI dashboard**.  
+This project investigates how both quantitative and qualitative factors affect car prices using statistical analysis and multiple linear regression techniques. The analysis aims to identify the most significant variables influencing vehicle pricing and quantify their impact on market value. The project applies exploratory data analysis, statistical modeling, and regression analysis to generate actionable insights for decision-making.
 
 **Tools Used:**
 
-* **SQL** – Querying and extracting data  
-* **Python (Pandas)** – Data cleaning    
-* **Excel** – Initial exploration and validation  
-* **Power BI** – Data modeling, DAX calculations, interactive dashboards  
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Statsmodels
+* Scikit-learn
+* Excel
 
 ---
 
-## 2. **Project Objective**
+## 2. Project Objective
 
-The main goal is to build a **data-driven performance monitoring system** for call center operations that enables stakeholders to:
+The main objective of this project is to analyze the relationship between car prices and various quantitative and qualitative variables in order to:
 
-* Monitor **call center operational performance**  
-* Track **answered vs abandoned calls**  
-* Evaluate **agent productivity**  
-* Analyze **customer satisfaction metrics (CSAT, NPS)**  
-* Compare **forecasted vs actual call volumes**  
-* Enable **interactive exploration** of operational data  
-
----
-
-## 3. **Key Stakeholders**
-
-The system is designed for:
-
-* **Call Center Managers** – Monitor operational KPIs  
-* **Operations Teams** – Track efficiency and resource allocation  
-* **Customer Experience Teams** – Analyze satisfaction trends  
-* **Business Analysts** – Generate insights and reports  
+* Identify significant factors affecting vehicle prices
+* Measure the impact of numerical variables on pricing
+* Evaluate the influence of categorical variables
+* Build a Multiple Linear Regression model
+* Assess model performance and explanatory power
+* Generate data-driven insights for pricing analysis
 
 ---
 
-## 4. **Key Performance Indicators (KPIs)**
+## 3. Key Stakeholders
 
-The dashboard calculates and tracks:
+The analysis can support:
 
-* **Total Calls**  
-* **Answered Calls**  
-* **Abandoned Calls**  
-* **Average Handling Time (AHT)**  
-* **Customer Satisfaction Score (CSAT)**  
-* **Net Promoter Score (NPS)**  
-* **Call Transfers**  
-* **Actual vs Forecast Performance**  
+* Automotive Market Analysts
+* Car Dealers
+* Vehicle Pricing Teams
+* Business Analysts
+* Data Analysts
+* Researchers in Automotive Economics
 
 ---
 
-## 5. **System Architecture**
+## 4. Research Questions
 
-The project follows a **multi-layer analytics pipeline**:
+The project answers several analytical questions:
+
+* Which quantitative variables significantly affect car prices?
+* Which qualitative variables have the strongest influence on pricing?
+* How much variation in price can be explained by the selected variables?
+* What is the combined effect of quantitative and qualitative variables on vehicle price?
+* Which factors increase or decrease the predicted price?
+
+---
+
+## 5. System Architecture
 
 ```mermaid
 flowchart LR
-    A[Raw Call Center Data] --> B[SQL Queries]
-    B --> C[Excel Exploration]
-    C --> D[Python Processing]
-    D --> E[Data Cleaning]
-    E --> H[Processed Dataset]
-    F --> H
-    G --> H
-    H --> I[Power BI Data Model]
-    I --> J[DAX Measures & KPIs]
-    J --> K[Interactive Dashboard]
-    K --> L[Business Insights]
+    A[Raw Car Dataset] --> B[Data Cleaning]
+    B --> C[Exploratory Data Analysis]
+    C --> D[Feature Selection]
+    D --> E[Encoding Qualitative Variables]
+    E --> F[Regression Modeling]
+    F --> G[Model Evaluation]
+    G --> H[Statistical Insights]
+    H --> I[Business Recommendations]
 ```
 
 ### Architecture Layers
 
-**1. Data Source Layer**
+#### 1. Data Source Layer
 
-* Raw call center dataset containing call records, agent data, handling time, and satisfaction metrics.
+* Car specifications dataset
+* Vehicle pricing information
+* Quantitative and qualitative attributes
 
-**2. Data Processing Layer**
+#### 2. Data Preparation Layer
 
-* SQL for querying data
-* Excel for initial exploration
-* Python for cleaning and feature engineering
+* Missing value handling
+* Data validation
+* Feature transformation
+* Categorical variable encoding
 
-**3. Analytics Layer**
+#### 3. Statistical Analysis Layer
 
-* Data modeling in Power BI
-* KPI calculations using DAX
+* Correlation analysis
+* Regression modeling
+* Significance testing
 
-**4. Visualization Layer**
+#### 4. Insight Generation Layer
 
-* Interactive Power BI dashboard
-* KPI monitoring
-* Performance insights
-These visualizations allow decision makers to analyze **call center performance efficiently**.
----
-
-## 6. **System Analysis**
-
-### 6.1 **Input Data**
-
-| Attribute | Description |
-|----------|-------------|
-| Call ID | Unique identifier for each call |
-| Call Date | Date of the call |
-| Call Time | Time interval when the call occurred |
-| Agent Name | Agent handling the call |
-| Team Manager | Manager supervising the agent |
-| Department | Department responsible for the call |
-| Call Status | Indicates whether the call was answered or abandoned |
-| Handling Time | Duration of the call |
-| Customer Satisfaction Score | Customer feedback rating |
-| Forecasted Calls | Predicted call volume |
-| Actual Calls | Actual call volume |
+* Variable importance analysis
+* Price impact interpretation
+* Business recommendations
 
 ---
 
-### 6.2 **System Processing**
+## 6. System Analysis
 
-The system performs several processing operations including:
+### 6.1 Input Data
 
-- Data cleaning and validation
-- Aggregation of performance metrics
-- KPI calculations
-- Time-based performance analysis
+| Variable        | Description                |
+| --------------- | -------------------------- |
+| Price           | Vehicle selling price      |
+| Mileage         | Distance driven by vehicle |
+| Horsepower      | Engine power               |
+| Engine Size     | Engine capacity            |
+| Number of Doors | Number of vehicle doors    |
+| Fuel Type       | Type of fuel used          |
+| Car Brand       | Manufacturer name          |
+| Body Style      | Vehicle body category      |
+| Drive Type      | Vehicle drivetrain         |
+| Cylinders       | Number of engine cylinders |
+
+---
+
+### 6.2 Data Processing
+
+The analysis includes:
+
+* Data cleaning and preprocessing
+* Exploratory Data Analysis (EDA)
+* Outlier detection
+* Correlation analysis
+* Dummy variable creation for categorical features
+* Multiple Linear Regression modeling
+* Statistical significance testing
 
 ---
 
-### 6.3 **System Outputs**
+### 6.3 Output Results
 
-The system generates **interactive dashboards** that display:
+The system produces:
 
-- Key Performance Indicators (**KPIs**)
-- Call center performance trends
-- Agent productivity comparisons
-- Call distribution analysis
-- Customer satisfaction metrics
+* Correlation matrices
+* Regression summaries
+* Variable significance reports
+* Coefficient interpretation
+* Predicted vs Actual Price comparisons
+* Statistical insights and recommendations
 
 ---
-## 6.4 **Entity Relationship Diagram(ERD)**
 
-The dataset follows a **galaxy Schema data model** .
+## 6.4 Conceptual Data Model
 
 ```mermaid
 erDiagram
 
-FACT_CALLS {
-int Agent_ID
-date Date
-int Department_ID
-float ACW_Time
-float Hold_Time
-float Talk_Time
-float Waiting_Time
-int Call_Transferred
+CAR_DATA {
+
+int Car_ID
+float Price
+float Mileage
+float Horsepower
+float Engine_Size
+int Doors
+string Fuel_Type
+string Brand
+string Body_Style
+string Drive_Type
+int Cylinders
+
 }
-
-FACT_ABANDONED {
-date Date
-int Department_ID
-float Abandonment_Time
-}
-
-FACT_FORECAST {
-date Date
-int Department_ID
-int Forecast_Calls
-int Interval
-}
-
-FACT_SURVEYS {
-int Agent_ID
-date Survey_Date
-int Satisfaction_Score
-int Resolution_Score
-int Recommend_Score
-}
-
-DIM_AGENTS {
-int Agent_ID
-string Agent_Name
-string Gender
-int Department_ID
-string Team_Manager
-}
-
-DIM_DEPARTMENTS {
-int Department_ID
-string Department_Name
-}
-
-DIM_CALENDAR {
-date Date
-int Month
-int Year
-int Week
-int Quarter
-}
-
-DIM_AGENTS ||--o{ FACT_CALLS : handles
-DIM_AGENTS ||--o{ FACT_SURVEYS : receives
-
-DIM_DEPARTMENTS ||--o{ FACT_CALLS : belongs_to
-DIM_DEPARTMENTS ||--o{ FACT_ABANDONED : belongs_to
-DIM_DEPARTMENTS ||--o{ FACT_FORECAST : belongs_to
-
-DIM_CALENDAR ||--o{ FACT_CALLS : recorded_on
-DIM_CALENDAR ||--o{ FACT_ABANDONED : recorded_on
-DIM_CALENDAR ||--o{ FACT_FORECAST : recorded_on
-DIM_CALENDAR ||--o{ FACT_SURVEYS : recorded_on
-```
----
-## **7 Algorithms**
-## **7.1 Analytical Metrics**
-
-**Abandonment Rate**  
-`Abandonment Rate = Abandoned Calls / Total Calls`  
-
-**Average Handling Time (AHT)**  
-`AHT = Total Handling Time / Answered Calls`  
-
-**Forecast Accuracy**  
-`Forecast Accuracy = Actual Calls / Forecasted Calls`  
-
----
-## 7.2 **Key DAX Measures**
-
-### **Total Calls**
-
-```DAX
-Total Calls =
-COUNT(CallCenter[CallID])
-```
-
-### **Answered Calls**
-
-```DAX
-Answered Calls =
-CALCULATE(
-    COUNT(CallCenter[CallID]),
-    CallCenter[CallStatus] = "Answered"
-)
-```
-
-### **Abandoned Calls**
-
-```DAX
-Abandoned Calls =
-CALCULATE(
-    COUNT(CallCenter[CallID]),
-    CallCenter[CallStatus] = "Abandoned"
-)
-```
-
-### **Abandonment Rate**
-
-```DAX
-Abandonment Rate =
-DIVIDE([Abandoned Calls], [Total Calls], 0)
-```
-
-### **Average Handling Time**
-
-```DAX
-Average Handling Time =
-AVERAGE(CallCenter[HandlingTime])
-```
-
-### **Customer Satisfaction Score**
-
-```DAX
-CSAT Score =
-AVERAGE(CallCenter[CustomerSatisfaction])
 ```
 
 ---
 
-## 8. **Repository Structure**
+## 7. Methodology
 
-```
-call-center-performance-dashboard
+### 7.1 Exploratory Data Analysis
+
+The project examines:
+
+* Distribution of vehicle prices
+* Relationships between numerical variables
+* Price variation across categories
+* Correlation patterns
+
+---
+
+### 7.2 Multiple Linear Regression
+
+The analysis uses Multiple Linear Regression to estimate the relationship between independent variables and vehicle price. Quantitative variables are used directly, while qualitative variables are converted into dummy variables before model fitting.
+
+---
+
+## 8. Statistical Metrics
+
+### R-Squared
+
+Measures the percentage of price variation explained by the model.
+
+### Adjusted R-Squared
+
+Evaluates model performance while accounting for the number of predictors.
+
+### P-Value
+
+Determines whether a variable significantly affects car prices.
+
+### Coefficient Estimates
+
+Measure the direction and magnitude of each variable's impact on price.
+
+---
+
+## 9. Repository Structure
+
+```text
+The-effect-of-quantitative-and-qualitative-variables-on-the-price-of-the-car
 
 data
-   raw_data.xlsx
-   processed_data.csv
+    car_dataset.xlsx
 
-python
-   data_cleaning.py
+notebooks
+    Car_Price_Analysis.ipynb
 
-sql
-   queries.sql
+reports
+    statistical_report.pdf
 
-powerbi
-   call_center_dashboard.pbix
-
+images
+    visualizations
 
 README.md
 ```
 
 ---
 
-## 9. **Expected Insights**
+## 10. Key Insights
 
-The dashboard helps decision makers to:
+The analysis helps identify:
 
-- Identify **high performing agents**
-- Detect **call abandonment patterns**
-- Monitor **customer satisfaction trends**
-- Analyze **call volume trends**
-- Improve **workforce planning**
+* Variables that significantly influence car prices
+* Most valuable vehicle characteristics
+* Impact of categorical factors such as fuel type and brand
+* Relationships between mileage, engine specifications, and price
+* Key drivers of vehicle valuation
+
+---
+
+## 11. Business Impact
+
+The findings can support:
+
+* Vehicle pricing strategies
+* Market analysis
+* Car valuation processes
+* Inventory management decisions
+* Automotive market research
+
+---
